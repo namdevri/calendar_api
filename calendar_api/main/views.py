@@ -22,7 +22,7 @@ class EventListView(generic.ListView):
     paginate_by = 10
     template_name = "event_list.html"
 
-class ScriptRunView(CreateAPIView):
+class EventView(CreateAPIView):
     model = Event
     serializer_class = EventSerializer
     #CSRF currently disabled
