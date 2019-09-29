@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container-fluid">
+  <div class="row-12">
+    <div class="card white-bg detail-card">
+      <div class="card-body">
+        <h5 class="card-title">{{ event.event_name }}</h5>
+        <p class="card-text">Finished: {{ event.event_finished}}</p>
+        <a href="{% url 'event_list_view' %}" class="btn btn-primary">View All</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

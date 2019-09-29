@@ -1,0 +1,25 @@
+body {
+  background: #007bff;
+  background: linear-gradient(to right, #0062E6, #33AEFF);
+}
+body {
+  margin: 40px 10px;
+  padding: 0;
+  font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+  font-size: 14px;
+}
+
+#calendar {
+  max-width: 900px;
+  background-color: #fff;
+  margin: 0 auto;
+}
+.white-bg{
+  background-color: #fff;
+}
+.detail-card{
+  position: relative;
+  width: 40%;
+  margin: 0 30%;
+  padding: 1.1rem .4rem;
+}

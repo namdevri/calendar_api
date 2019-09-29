@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block content %}
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var calendarEl = document.getElementById('calendar');
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+      plugins: [ 'interaction', 'dayGrid' ],
+      defaultDate: $.datepicker.formatDate('yy-mm-dd', new Date()),
+      editable: false,
+      eventLimit: true,
+      events: [
+        {% for event in events %}
+        {
+          title: "{{ event.event_name}}",
+          start: "{{ event.event_finished|date:'Y-m-d' }}",
+          url: "{{ event.get_absolute_url}}"
+        },
+        {% endfor %}
+      ],
+      eventClick: function(info) {
+        info.jsEvent.preventDefault(); // don't let the browser navigate
+
+        if (info.event.url) {
+          window.open(info.event.url);
+        }
+      }
+
+    });
+
+    calendar.render();
+  });
+
+</script>
+
+      <div id='calendar'></div>
+
+{% endblock %}
