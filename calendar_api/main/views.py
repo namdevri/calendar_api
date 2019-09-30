@@ -16,7 +16,10 @@ def event_detail(request, id):
 class EventDetailView(generic.DetailView):
     model = Event
     template_name = "event_detail.html"
-
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["all_events"] = Event.objects.all()[:10]
+        return context
 class EventListView(generic.ListView):
     model = Event
     paginate_by = 10
@@ -28,4 +31,4 @@ class EventView(CreateAPIView):
     #CSRF currently disabled
     @csrf_exempt
     def dispatch(self, *args, **kwargs):
-        return super(ScriptRunView, self).dispatch(*args, **kwargs)
+        return super(EventView, self).dispatch(*args, **kwargs)

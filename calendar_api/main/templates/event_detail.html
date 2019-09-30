@@ -12,4 +12,30 @@
     </div>
   </div>
 </div>
+<div class="container-fluid">
+  <div class="row-12 detail-table">
+    <table class="table white-bg">
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Finish Time</th>
+          <th>Detail</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for e in all_events %}
+        <tr>
+          <td>{{ e.event_name}}</td>
+          <td>{{ e.event_finished}}</td>
+          <td><a href="{{ e.get_absolute_url}}">View</a></td>
+        </tr>
+        {% endfor %}
+        <tr>
+          <td colspan="3"><a href="{% url 'event_list_view' %}">View All</a></td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+</div>
 {% endblock %}
